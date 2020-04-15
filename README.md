@@ -1,12 +1,12 @@
 # json_transfer
-json_transfer是一个JSON解析器，适合已知json格式时快速解析，采用数据结构的形式定义json格式，简洁不易出错：
+`json_transfer`是一个JSON解析器，适合已知json格式时快速解析，采用数据结构的形式定义json格式，简洁不易出错：
 - C语言实现，共4个文件，方便移植
 - 依赖于[cJSON](https://github.com/DaveGamble/cJSON)库，需要链接math库(-lm)
 
-使用示例：
+使用示例：`{"method":"Set","params":{"mode":"single"},"id":1}`
 
 
-1.数据转换为json
+1.数据结构转换为json
 ``` c
   json_elem_t params[] = {
     {"mode",   JSON_TYPE_STRING, 0, 0, "single"},
@@ -25,7 +25,7 @@ json_transfer是一个JSON解析器，适合已知json格式时快速解析，�
   printf("%s \n", json);
 ```
 
-2.json转换为数据
+2.json转换为数据结构
 ``` c
   char mode2[JSON_STRING_SIZE_MAX];
   json_elem_t params2[] = {
