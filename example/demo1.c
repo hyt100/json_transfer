@@ -38,5 +38,7 @@ int main(int argc, char *argv[])
     {NULL, 0, 0, 0, NULL}
   };
   transfer_json_to_data(json, (json_elem_t *)root2);
+  
+  free(json); //IMPORTANT !!!
 }
 

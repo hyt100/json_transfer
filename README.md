@@ -23,6 +23,7 @@
 
   char *json = transfer_data_to_json((json_elem_t *)root);
   printf("%s \n", json);
+  free(json); //It's the user's responsibility to free this memory
 ```
 
 2.json转换为数据结构
