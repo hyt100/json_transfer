@@ -1,12 +1,12 @@
 # json_transfer
-`json_transfer`是一个JSON解析器，适合已知json格式时快速解析，采用数据结构的形式定义json格式，简洁不易出错：
+`json_transfer`是一个JSON序列化/反序列化器，适合已知json格式时快速转换，采用数据结构映射json格式，简洁不易出错：
 - C语言实现，共4个文件，方便移植
-- 依赖于[cJSON](https://github.com/DaveGamble/cJSON)库，需要链接math库(-lm)
+- 集成了[cJSON](https://github.com/DaveGamble/cJSON)库，使用时需要链接math库(-lm)
 
 使用示例：`{"method":"Set","params":{"mode":"single"},"id":1}`
 
 
-1.数据结构转换为json
+1.数据结构反序列化为json文本
 ``` c
   json_elem_t params[] = {
     {"mode",   JSON_TYPE_STRING, 0, 0, "single"},
@@ -26,7 +26,7 @@
   free(json); //It's the user's responsibility to free this memory
 ```
 
-2.json转换为数据结构
+2.json文本序列化为数据结构
 ``` c
   char mode2[JSON_STRING_SIZE_MAX];
   json_elem_t params2[] = {
@@ -35,7 +35,7 @@
   };
 
   char method2[JSON_STRING_SIZE_MAX];
-  int id2 = 1;
+  int id2 = 0;
   json_elem_t root2[] = {
     {"method", JSON_TYPE_STRING, 0, 0, method2},
     {"params", JSON_TYPE_OBJ, 0, 0, params2},
