@@ -45,7 +45,7 @@ typedef struct {
 } json_array_t;
 
 typedef struct {
-  char *name;
+  const char *name;
   int type;
   int arr_type;  //only for array
   int arr_size;  //only for array

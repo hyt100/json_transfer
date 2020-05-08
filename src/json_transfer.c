@@ -31,11 +31,11 @@ static int parse_obj(cJSON *node, json_elem_t *elem);
 static int parse_array(cJSON *node, json_array_t *desp)
 {
   int array_size = cJSON_GetArraySize(node);
-  if (array_size != desp->arr_size) return -1;
+  if (array_size < desp->arr_size) return -1;
   if (desp->arr_type >= JSON_TYPE_MAX) return -1;
   
   int i;
-  for (i = 0; i < array_size; ++i) {
+  for (i = 0; i < desp->arr_size; ++i) {
     cJSON *item = cJSON_GetArrayItem(node, i);
     if (!item) return -1;
 
