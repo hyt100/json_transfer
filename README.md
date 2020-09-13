@@ -44,3 +44,5 @@
   };
   transfer_json_to_data(json, (json_elem_t *)root2);
 ```
+
+> 备注：cJson库支持的整数类型是int，不支持long long，所以如果要传输64位长度整数，需要修改cJson库。
